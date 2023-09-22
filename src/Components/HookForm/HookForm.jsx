@@ -1,16 +1,17 @@
+import UseInputHook from "../../Hooks/UseInputHook";
 
-const From = () => {
+const HookForm = () => {
+    const {name, handelChange} = UseInputHook('ami.tumi');
+
     const handelForm = e =>{
         e.preventDefault()
-        console.log(e.target.text.value);
-        console.log(e.target.email.value);
-        console.log(e.target.phone.value);
-        console.log('submit')
+        console.log(name)
     }
     return (
         <div>
             <form onSubmit={handelForm}>
-                <input type="text" name="text" />
+                <input value={name} onChange={handelChange}
+                 type="text" name="text" />
                 <br />
                 <input type="email" name="email" />
                 <br />
@@ -22,4 +23,4 @@ const From = () => {
     );
 };
 
-export default From;
+export default HookForm;
